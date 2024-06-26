@@ -1,4 +1,4 @@
-# The Lou Dataset - Exploring the Impact of Gender-Fair Language in German Text Classification
+# The `Lou` Dataset - Exploring the Impact of Gender-Fair Language in German Text Classification
 
 ![example](example_entry.png)
 *Figure 1, example entry of the `Lou` dataset with the `original` instance of the engaging detection task from the GermEval-2021 dataset and its six reformulations.*
@@ -76,23 +76,24 @@ $ wandb login
 ```
 
 
-
-## Tasks
+### Tasks
 
 This work relies on the following different datasets:
-*  Argument Quality (`arg-qua`), available [here](https://research.ibm.com/haifa/dept/vst/debating_data.shtml)
-*  Argument Similarity (`arg-sim`), available [here](https://huggingface.co/datasets/UKPLab/UKP_ASPECT)
-*  Argument Classification (`arg-cls`), available [here](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/2345)
-*  Evidence Classification (`evi-cls`), available [here](https://research.ibm.com/haifa/dept/vst/debating_data.shtml)
-*  Entailment (`entail`), RTE is available [here](https://huggingface.co/datasets/nyu-mll/glue), SCITAIL [here](https://huggingface.co/datasets/allenai/scitail), and HANS [here](https://huggingface.co/datasets/jhu-cogsci/hans)
-*  Sentiment Analysis (`review`), available [here](https://www.cs.jhu.edu/~mdredze/datasets/sentiment/index2.html)
-*  Stance Detection (`stance`), SemEval2016Task6 is available [here](http://alt.qcri.org/semeval2016/task6/), EMERGENT [here](https://github.com/willferreira/mscproject), and IAC [here](https://nlds.soe.ucsc.edu/iac)
-*  Multi-Lingual Stance Detection (`x-stance`), available [here](https://huggingface.co/datasets/ZurichNLP/x_stance)
-*  Multi-Lingual Sentiment Analysis (`x-review`), available [here](https://zenodo.org/record/3251672/files/cls-acl10-unprocessed.tar.gz)
+*  Stance Detection (`x-stance-de`)
+*  Fact-Claiming Detection (`germeval-factclaiming`)
+*  Engaging Detection (`germeval-engaging`)
+*  Toxicity Detection (`germeval-toxic` and `detox-toxic`)
+*  Hate-Speech Detection (`detox-hate_speech`)
+*  Sentiment Analysis (`detox-sentiment`)
 
-Some of these datasets requires accepting conditions, but we are happy to share our parsed version with you.
-Send us these datasets as zip to proof that you have access.
-Afterward, we share our splits and you can put them into the `tasks` folder.
+The tasks file to run the experiments are placed in the `tasks` folder. 
+* `train.jsonl` includes the original training instances without any reformulation.
+* `dev.jsonl` includes the original development instances without any reformulation.
+* `test_original.jsonl` includes the original test instances with masculine formulations.
+* `test_{STRATEGY}.jsonl` includes the reformulated test instances following a specific strategy. 
+
+When you get access to the full version of DeTox, we provide you the corresponding files. 
+You can put them in the `tasks` folder.
 
 ## Running the experiments
 
