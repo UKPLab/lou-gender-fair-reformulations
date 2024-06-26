@@ -1,6 +1,8 @@
 # The Lou Dataset - Exploring the Impact of Gender-Fair Language in German Text Classification
 
-![example](overview.jpg)
+![example](example_entry.png)
+*Figure 1, example entry of the `Lou` dataset with the `original` instance of the engaging detection task from the GermEval-2021 dataset and its six reformulations.*
+
 This work explores the impact of gender-fair language for German text classification tasks. 
 We provide in this repository:
 * The `Lou` dataset including the gender-inclusive and gender-neutral reformulations according to six gender-fair strategies.
@@ -25,9 +27,6 @@ https://www.tu-darmstadt.de/
 
 
 ## The Lou Dataset
-
-![example](example_entry.png)
-*Figure 1, example entry of the `Lou` dataset with the `original` instance of the engaging detection task from the GermEval-2021 dataset and its six reformulations.*
 
 The `Lou` dataset provides gender-fair reformulation of instances from seven German classification task.
 
