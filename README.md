@@ -52,6 +52,7 @@ For example, *Politiker* (*politician.MASC.PL*) is changed to *Politikerne* (*po
 ## Experiments
 With the following steps, you can run the experiments of the paper on the `Lou` dataset.
 
+### Setup
 This repository requires Python3.7 or higher; further requirements can be found in the requirements.txt.
 Install them with the following command:
 
@@ -95,80 +96,4 @@ The tasks file to run the experiments are placed in the `tasks` folder.
 When you get access to the full version of DeTox, we provide you the corresponding files. 
 You can put them in the `tasks` folder.
 
-## Running the experiments
-
-Please use the following scripts to run the different experiments.
-For all of them take the following general parameters:
-* `task`, specific task to run, for example `arg-cls`
-* `model_name`, specific model (huggingface tag) to run, for example `bert-base-uncased"`
-* `fold`, specific fold to run, for example `0`
-* `setup`, specific setup to run, depends on the task, either cross-topic (`ct`), in-topic (`it`), cross-domain (`cd`), in-domain (`id`), cross-language (`cl`), or in-language (`il`)
-
-
-### Probing (LP) Experiments (`run_frozen.py`)
-Mono- and multi-lingual linear probing experiments, additional parameters:
-
-* `seed`, specific random seed
-* `pooling`, pooling method, for example `mean`
-* `batch_size`, batch size for training, for example `16`
-* `learning_rate`, learning rate for training, for example `0.0005`
-
-
-### Prompting (P) Experiments (`run_prompt.py` and `run_x_prompt.py`)
-Mono- or multi-lingual prompting experiments, additional parameters:
-
-* `seed`, specific random seed
-* `batch_size`, batch size for inference, for example `16`
-* `verbalizing_mode`, verbalizing mode, either `static` (label specific tokens) or `automatic` (50 optimized tokens per label)
-
-
-### Fine-Tuning (FT) Experiments (`run_fine-tuning.py`)
-Vanilla mono- and multi-lingual fine-tuning experiments, additional parameters:
-
-* `seed`, specific random seed
-* `pooling`, pooling method, for example `cls`
-* `batch_size`, batch size for training, for example `16`
-* `learning_rate`, learning rate for training, for example `0.0005`
-* `epochs`, specific number of epochs to train, for example `5`
-* `dropout_rate`, dropout rate during training, for example `0.1`
-
-### Prompt-Based Fine-Tuning (P+FT) Experiments (`run_prompt_tuning.py` and `run_x_prompt_tuning.py`)
-Prompt-based mono- and multi-lingual fine-tuning experiments, additional parameters:
-* `seed`, specific random seed
-* `pooling`, pooling method, for example `cls`
-* `batch_size`, batch size for training, for example `16`
-* `learning_rate`, learning rate for training, for example `0.0005`
-* `epochs`, specific number of epochs to train, for example `5`
-* `verbalizing_mode`, verbalizing mode, either `static` (label specific tokens) or `automatic` (50 optimized tokens per label)
-
-
-### Parameter-Efficient Prompt-Based Fine-Tuning (P+FT+LoRA) Experiments (`run_peft_prompt_tuning.py`)
-Vanilla mono- and multi-lingual fine-tuning experiments, additional parameters:
-
-* `seed`, specific random seed
-* `pooling`, pooling method, for example `cls`
-* `batch_size`, batch size for training, for example `16`
-* `learning_rate`, learning rate for training, for example `0.0005`
-* `verbalizing_mode`, verbalizing mode, either `static` (label specific tokens) or `automatic` (50 optimized tokens per label)
-* `peft_mode`, specific efficient method, for example `LORA`
-* `lora_r`, if using LORA the specific `r`, for example `4`
-
-### In-Context Learning Experiments (`run_icl.py`)
-In-context learning experiments
-
-* `seed`, specific random seed
-* `k`, number of demonstration examples, for example `4`
-* `bm25_retrieval`, whether to use BM25 to retrieve most similar examples, for example `True`
-
-
-## Citation
-
-```
-@misc{waldis2024handle,
-      title={How to Handle Different Types of Out-of-Distribution Scenarios in Computational Argumentation? A Comprehensive and Fine-Grained Field Study}, 
-      author={Andreas Waldis and Yufang Hou and Iryna Gurevych},
-      year={2024},
-      eprint={2309.08316},
-      archivePrefix={arXiv},
-}
-```
+### Fine-Tuning Experiments
