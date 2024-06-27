@@ -60,6 +60,12 @@ We use six strategies: `Doppelnennung`, `GenderStern`, `GenderDoppelpunkt`, `Gen
   For example, *Politiker* (*politician.MASC.PL*) is changed to *Politikerne* (*politician.FEM.MASC.NEUT.PL*).
 </details>
 
+### Files
+You find in the `lou` folder one file for each task, for example, `germeval-engaging.jsonl`.
+These files contain one json-entry for each instance. 
+As shown in *Figure*, such an instance-entry includes the original (`Original`) text along with the reformulated version regarding the six gender-inclusive and gender-neutral strategies. 
+In addition, you find the task specific annotation (`label`), and for the stance detection task (`x-stance-de`) the corresponding topic.
+
 ## Experiments
 With the following steps, you can run the experiments of the paper on the `Lou` dataset.
 
