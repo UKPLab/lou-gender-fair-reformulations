@@ -148,7 +148,7 @@ After running these experiments, you need to add a new entry with the resulting 
     "deepset/gbert-base": {
         "batch_size": 32,
         "learning_rate": 5e-05
-    }, ...
+    }, 
 }
 ```
 

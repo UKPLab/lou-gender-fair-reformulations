@@ -26,11 +26,11 @@ def truncate_sentence(sentence, truncation_length, tokenizer):
 
 @click.command()
 @click.option('--task', type=str, default="germeval-toxic")
-@click.option('--model_name', type=str, default="gpt-3.5-turbo")
+@click.option('--model_name', type=str, default="mayflowergmbh/Llama-3-SauerkrautLM-8b-Instruct-AWQ")
 @click.option('--k', type=int, default=0)
 @click.option('--seed', type=int, default=0)
 @click.option('--template_indices', type=str, default="0")
-@click.option('--endpoint', type=str)
+@click.option('--endpoint', type=str, default="https://10.10.10.1/v1")
 def main(task, model_name, k, seed, template_indices, endpoint):
     load_dotenv()
     training = "INSTRUCTION_CHAT"
