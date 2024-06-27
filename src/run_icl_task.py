@@ -27,16 +27,12 @@ def truncate_sentence(sentence, truncation_length, tokenizer):
 @click.command()
 @click.option('--task', type=str, default="germeval-toxic")
 @click.option('--model_name', type=str, default="gpt-3.5-turbo")
-@click.option('--fold', type=int, default=0)
-@click.option('--setup', type=str, default="it")
 @click.option('--k', type=int, default=0)
 @click.option('--seed', type=int, default=0)
-@click.option('--limit', type=int, default=0)
 @click.option('--template_indices', type=str, default="0")
 @click.option('--endpoint', type=str)
-def main(task, model_name, fold, setup, k, seed, limit, bm25_retrieval, template_indices, endpoint):
+def main(task, model_name, k, seed, template_indices, endpoint):
     load_dotenv()
-    task_id = task + "-" + setup + "-fold-" + str(fold)
     training = "INSTRUCTION_CHAT"
     api_key = os.getenv('OPENAI_KEY')
 
@@ -51,17 +47,14 @@ def main(task, model_name, fold, setup, k, seed, limit, bm25_retrieval, template
         )
 
 
-    try:
-        train_samples = pandas.read_json("../tasks/" + task_id + "/train.jsonl").sort_index()
-    except:
-        train_samples = pandas.read_json("../tasks/" + task_id + "/train.jsonl", lines=True).sort_index()
+    train_samples = pandas.read_json("../tasks/" + task + "/train.jsonl", lines=True).sort_index()
 
     template_indices = [int(i) for i in template_indices.split(",")]
 
     for i in template_indices:
 
-        for file in glob.glob("../tasks/" + task_id + "/test_*.jsonl"):
-            subset = file.replace("../tasks/" + task_id + "/test_", "").replace(".jsonl", "")
+        for file in glob.glob("../tasks/" + task + "/test_*.jsonl"):
+            subset = file.replace("../tasks/" + task + "/test_", "").replace(".jsonl", "")
             test_samples = pandas.read_json(file, lines=True).sort_index()
 
             def shorten_text(samples):
@@ -79,12 +72,9 @@ def main(task, model_name, fold, setup, k, seed, limit, bm25_retrieval, template
 
             hyperparameter = {
                 "model_name": model_name,
-                "fold": fold,
-                "setup": setup,
                 "training": training,
                 "k": k,
                 "seed": seed,
-                "limit": limit,
                 "template": i,
                 "strategy": subset
             }

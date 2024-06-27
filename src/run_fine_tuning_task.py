@@ -28,31 +28,31 @@ def truncate_sentence(sentence, truncation_length, tokenizer):
     return tokenizer.decode(tokens)
 
 @click.command()
-@click.option('--task', type=str, default="x-stance-fr")
+@click.option('--task', type=str, default="x-stance-de")
 @click.option('--model_name', type=str, default="deepset/gbert-base")
-@click.option('--fold', type=int, default=0)
-@click.option('--setup', type=str, default="it")
-@click.option('--seed', type=int, default=20)
-@click.option('--batch_size', type=int, default=16)
+@click.option('--seed', type=int, default=0)
+@click.option('--batch_size', type=int)
 @click.option('--epochs', type=int, default=5)
-@click.option('--dropout_rate', type=float, default=0.1)
-@click.option('--learning_rate', type=float, default=0.00002)
-def main(task, model_name, fold, setup, seed, batch_size, epochs, dropout_rate, learning_rate):
+@click.option('--learning_rate', type=float)
+def main(task, model_name, fold, setup, seed, batch_size, epochs, learning_rate):
 
     if task in HYPERPARAMS and model_name in HYPERPARAMS[task]:
         learning_rate = HYPERPARAMS[task][model_name]["learning_rate"]
         batch_size = HYPERPARAMS[task][model_name]["batch_size"]
 
+    elif batch_size is None or learning_rate is None:
+        print("No hyperparmeters found in hyperparams.py and none are provided, quit execution")
+        return
+
     load_dotenv()
-    task_id = task + "-" + setup + "-fold-" + str(fold)
     gpu = "cuda" if os.getenv('MODE') == "prod" else "cpu"
     training = "FINE_TUNING"
 
-    train_samples = pandas.read_json("../tasks/" + task_id + "/train.jsonl", lines=True).sort_index()
-    dev_samples = pandas.read_json("../tasks/" + task_id + "/dev.jsonl", lines=True).sort_index()
+    train_samples = pandas.read_json("../tasks/" + task + "/train.jsonl", lines=True).sort_index()
+    dev_samples = pandas.read_json("../tasks/" + task + "/dev.jsonl", lines=True).sort_index()
     other_test_samples = {
-        file.replace("../tasks/" + task_id + "/test_", "").replace(".jsonl", ""): pandas.read_json(file, lines=True).sort_index()
-        for file in glob.glob("../tasks/" + task_id + "/test_*.jsonl")
+        file.replace("../tasks/" + task + "/test_", "").replace(".jsonl", ""): pandas.read_json(file, lines=True).sort_index()
+        for file in glob.glob("../tasks/" + task + "/test_*.jsonl")
     }
 
     if "text" in dev_samples.columns:
@@ -70,7 +70,6 @@ def main(task, model_name, fold, setup, seed, batch_size, epochs, dropout_rate, 
         "setup": setup,
         "training": training,
         "batch_size": batch_size,
-        "dropout_rate": dropout_rate,
         "learning_rate": learning_rate,
         "seed": seed,
     }
