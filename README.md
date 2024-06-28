@@ -213,3 +213,6 @@ You need to specify another API endpoint, other than the original OpenAI one, fo
 * `--seeds`, a list of seeds to run for few-shot setting, default `0,1,2,3,4,5,6,7,8,9`
 * `--template_indices`, a list of prompting template to evaluate, default `0,1,2,3`
 </details>
+
+### Citation
+Todo
