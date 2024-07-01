@@ -33,6 +33,8 @@ https://www.tu-darmstadt.de/
 ## The Lou Dataset
 
 The `Lou` dataset provides gender-fair reformulations for instances from seven German classification tasks.
+It is intended for non-commercial use and research is licensed under the CC BY-NC 4.0 licence.
+The copyright of the original text remains at the original datasets.
 
 ### Tasks and Data
 We include seven tasks (*sentiment analysis* and *stance-*, *fact-claiming-*, *engaging-*, *hate-speech-*, and *toxicity-detection*) from the [X-Stance](https://huggingface.co/datasets/ZurichNLP/x_stance), [GermEval-2021](https://germeval2021toxic.github.io/SharedTask/), and [DeTox](https://github.com/hdaSprachtechnologie/detox) datasets.
