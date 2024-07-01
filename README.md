@@ -216,5 +216,11 @@ You need to specify another API endpoint, other than the original OpenAI one, fo
 * `--template_indices`, a list of prompting template to evaluate, default `0,1,2,3`
 </details>
 
-### Citation
-Todo
+### Reference
+```
+@misc{waldis2024-lou,
+      title={The Lou Dataset - Exploring the Impact of Gender-Fair Language in German Text Classification}, 
+      author={Andreas Waldis and Joel Birrer and Anne Lauscher and Iryna Gurevych},
+      year={2024}
+}
+```
