@@ -40,7 +40,7 @@ The copyright of the original text remains at the original datasets.
 We include seven tasks (*sentiment analysis* and *stance-*, *fact-claiming-*, *engaging-*, *hate-speech-*, and *toxicity-detection*) from the [X-Stance](https://huggingface.co/datasets/ZurichNLP/x_stance), [GermEval-2021](https://germeval2021toxic.github.io/SharedTask/), and [DeTox](https://github.com/hdaSprachtechnologie/detox) datasets.
 For `Lou`, you need access to the full version of DeTox.
 Therefore, we excluded it from this public repository.
-However, we are happy to share this part of `Lou` with you when you provide us the approval, which you can request [here](https://github.com/hdaSprachtechnologie/detox)
+However, we are happy to share this part of `Lou` with you when you provide us the approval, which you can request [here](https://github.com/hdaSprachtechnologie/detox).
 
 ### Reformulation Strategies
 With `Lou`, we provide gender-inclusive and gender-neutral reformulations for masculine formulations, like *Politiker* in *Figure 1*.
