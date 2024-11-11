@@ -218,9 +218,23 @@ You need to specify another API endpoint, other than the original OpenAI one, fo
 
 ### Reference
 ```
-@misc{waldis2024-lou,
-      title={The Lou Dataset - Exploring the Impact of Gender-Fair Language in German Text Classification}, 
-      author={Andreas Waldis and Joel Birrer and Anne Lauscher and Iryna Gurevych},
-      year={2024}
+@inproceedings{waldis-etal-2024-lou,
+    title = "The {L}ou Dataset - Exploring the Impact of Gender-Fair Language in {G}erman Text Classification",
+    author = "Waldis, Andreas  and
+      Birrer, Joel  and
+      Lauscher, Anne  and
+      Gurevych, Iryna",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.emnlp-main.592",
+    pages = "10604--10624",
+    abstract = "Gender-fair language, an evolving linguistic variation in German, fosters inclusion by addressing all genders or using neutral forms. However, there is a notable lack of resources to assess the impact of this language shift on language models (LMs) might not been trained on examples of this variation. Addressing this gap, we present Lou, the first dataset providing high-quality reformulations for German text classification covering seven tasks, like stance detection and toxicity classification. We evaluate 16 mono- and multi-lingual LMs and find substantial label flips, reduced prediction certainty, and significantly altered attention patterns. However, existing evaluations remain valid, as LM rankings are consistent across original and reformulated instances. Our study provides initial insights into the impact of gender-fair language on classification for German. However, these findings are likely transferable to other languages, as we found consistent patterns in multi-lingual and English LMs.",
 }
+
 ```
